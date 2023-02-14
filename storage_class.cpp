@@ -1,11 +1,21 @@
 #include<iostream>
-// #include"storage_class_extern.cpp"
 using namespace std;
-extern void x_square(int x);
-extern int ext; // extern type run first storage_class_extern.cpp
+int try_static();
 int main(){
     int i; // auto type
     register int j; // register type 
-    x_square(ext);
+    for(i=0;i<100;i++){
+        
+    }
+    cout<<"register variable is "<<i<<endl;
+    cout<<"static varible first call "<<try_static()<<endl;
+    cout<<"static varible second call "<<try_static()<<endl;
+    cout<<"static varible third call "<<try_static()<<endl; // observe the value of s is not destroyed after the function call ends
     return 0;
+    }
+
+int try_static(){
+    static int s=2;
+    s=s+2;
+    return s;
 }
